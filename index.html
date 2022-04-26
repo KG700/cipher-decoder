@@ -8,9 +8,20 @@
   <body>
     <h1>Welcome to DPT Vanilla Cipher encoder/decoder</h1>
     <textarea id="text-to-code"></textarea>
-    <div id="caesar-cipher"><h2>Caesar cipher</h2><p id="caesar-coded"></p></p></div>
+
+    <div id="caesar-cipher">
+      <h2>Caesar cipher</h2>
+      <label>
+        Rotation setting
+        <input id="caesar-shift" type="number" value="1" min="0" max="25" />
+      </label>
+      <p id="caesar-coded"></p>
+    </div>
+
     <div id="rot13-cipher"></div>
+
     <div id="vigenere-cipher"></div>
+
     <footer>
       <div id="todays-date"></div>
     </footer>

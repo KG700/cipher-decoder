@@ -1,10 +1,10 @@
 import dayjs from "dayjs";
+import { displayCaesar } from "./src/utils/caesar.js";
 
-const textToCode = document.getElementById("text-to-code");
+const textToCodeInput = document.getElementById("text-to-code");
 const now = dayjs();
-textToCode.addEventListener("input", () => {
-  document.getElementById("caesar-coded").innerText = textToCode.value;
-});
+
+textToCodeInput.addEventListener("input", () => displayCaesar());
 
 document.getElementById("todays-date").innerText =
   now.format("DD/MM/YYYY HH:mm");
