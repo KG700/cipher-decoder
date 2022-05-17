@@ -1,27 +1,24 @@
-import { alphabet, isUpperCase } from "./helpers.js";
+import { switchLabel, cipher } from "./helpers.js";
+import { textToCodeInput } from "../../index.js";
+
+let isCaesarEncoding = true;
 
 const caesarShiftInput = document.getElementById("caesar-shift");
-const textToCodeInput = document.getElementById("text-to-code");
+const caesarEncodeSwitch = document.querySelector(
+  "input[name=caesar-encode-switch]"
+);
 
 caesarShiftInput.addEventListener("input", () => displayCaesar());
 
-const ceasarCipher = (text, shift = 1) => {
-  const codeMap = {};
+caesarEncodeSwitch.addEventListener("change", () => {
+  isCaesarEncoding = !isCaesarEncoding;
+  switchLabel("caesar-switch-label", isCaesarEncoding);
+  displayCaesar();
+});
 
-  alphabet.map((letter, i) => {
-    codeMap[letter] = String.fromCharCode(((i + shift) % 26) + 65);
-  });
-
+export const ceasarCipher = (text, encoding = true, shift = 1) => {
   let codedText = [...text].map((letter) => {
-    const validLetter = /[a-zA-z]/;
-
-    if (!validLetter.test(letter)) return letter;
-    const capitalLetter = letter.toUpperCase();
-    let cipherLetter = codeMap[capitalLetter];
-    cipherLetter = isUpperCase(letter)
-      ? cipherLetter
-      : cipherLetter.toLowerCase();
-    return cipherLetter;
+    return cipher(letter, encoding, shift);
   });
 
   return codedText.join("");
@@ -31,6 +28,7 @@ export const displayCaesar = () => {
   const shift = parseInt(caesarShiftInput.value);
   document.getElementById("caesar-coded").innerText = ceasarCipher(
     textToCodeInput.value,
+    isCaesarEncoding,
     shift
   );
 };

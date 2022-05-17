@@ -4,27 +4,97 @@
   <head>
     <meta charset="UTF-8" />
     <title>JavaScript Example</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Welcome to DPT Vanilla Cipher encoder/decoder</h1>
-    <textarea id="text-to-code"></textarea>
+    <main>
+      <div class="row">
+        <h1>Decipher the Cipher</h1>
+        <p class="sub-heading">Welcome to DPT Vanilla Cipher encoder/decoder</p>
+        <textarea id="text-to-code"></textarea>
+      </div>
+      <div class="row">
+        <div id="caesar-cipher" class="cipher-container">
+          <div class="cipher-settings">
+            <h2>Caesar cipher</h2>
+            <label>
+              Rotation:
+              <input
+                id="caesar-shift"
+                type="number"
+                value="1"
+                min="0"
+                max="25"
+              />
+            </label>
+            <div class="switch-container">
+              <span id="caesar-switch-label">Encoding</span>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  id="caesar-encode"
+                  name="caesar-encode-switch"
+                  checked
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+          <p id="caesar-coded" class="coded-decoded-text"></p>
+        </div>
 
-    <div id="caesar-cipher">
-      <h2>Caesar cipher</h2>
-      <label>
-        Rotation setting
-        <input id="caesar-shift" type="number" value="1" min="0" max="25" />
-      </label>
-      <p id="caesar-coded"></p>
-    </div>
+        <div id="rot13-cipher" class="cipher-container">
+          <div class="cipher-settings">
+            <h2>Rot13 cipher</h2>
+            <div class="switch-container">
+              <span id="rot13-switch-label">Encoding</span>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  id="rot13-encode"
+                  name="rot13-encode-switch"
+                  checked
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+          <p id="rot13-coded" class="coded-decoded-text"></p>
+        </div>
 
-    <div id="rot13-cipher"></div>
-
-    <div id="vigenere-cipher"></div>
-
-    <footer>
-      <div id="todays-date"></div>
-    </footer>
+        <div id="vigenere-cipher" class="cipher-container">
+          <div class="cipher-settings">
+            <h2>Vigenere cipher</h2>
+            <label>
+              Keyword:
+              <input id="vigenere-keyword" type="text" />
+            </label>
+            <div class="switch-container">
+              <span id="vigenere-switch-label">Encoding</span>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  id="vigenere-encode"
+                  name="vigenere-encode-switch"
+                  checked
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+          <p id="vigenere-coded" class="coded-decoded-text"></p>
+        </div>
+      </div>
+      <footer>
+        <div id="todays-date"></div>
+      </footer>
+    </main>
     <script type="text/javascript" src="dist/main.js"></script>
   </body>
 </html>
