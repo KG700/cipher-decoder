@@ -1,10 +1,10 @@
 import { textToCodeInput } from "../../index.js";
 import { cipher, alphabet, alphabetIndexMap, switchLabel } from "./helpers";
 
-let isVigenereEncoding = true;
-
 const vigenereKeywordInput = document.getElementById("vigenere-keyword");
 vigenereKeywordInput.addEventListener("input", () => displayVigenere());
+
+let isVigenereEncoding = true;
 
 const vigenereEncodeSwitch = document.querySelector(
   "input[name=vigenere-encode-switch]"

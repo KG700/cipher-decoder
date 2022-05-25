@@ -1,10 +1,11 @@
-import dayjs from "dayjs";
 import { displayCaesar } from "./src/utils/caesar.js";
 import { displayRot13 } from "./src/utils/rot13.js";
 import { displayVigenere } from "./src/utils/vigenere.js";
+import { getQuotes, updateQuote } from "./src/utils/quotes.js";
+import { updateTime } from "./src/utils/time.js";
+import "regenerator-runtime/runtime";
 
 export const textToCodeInput = document.getElementById("text-to-code");
-const now = dayjs();
 
 textToCodeInput.addEventListener("input", () => {
   displayCaesar();
@@ -12,5 +13,8 @@ textToCodeInput.addEventListener("input", () => {
   displayVigenere();
 });
 
-document.getElementById("todays-date").innerText =
-  now.format("DD/MM/YYYY HH:mm");
+(async () => {
+  const quotes = await getQuotes();
+  updateQuote(quotes);
+  updateTime();
+})();

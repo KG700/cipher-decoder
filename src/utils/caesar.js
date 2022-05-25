@@ -1,14 +1,14 @@
 import { switchLabel, cipher } from "./helpers.js";
 import { textToCodeInput } from "../../index.js";
 
+const caesarShiftInput = document.getElementById("caesar-shift");
+caesarShiftInput.addEventListener("input", () => displayCaesar());
+
 let isCaesarEncoding = true;
 
-const caesarShiftInput = document.getElementById("caesar-shift");
 const caesarEncodeSwitch = document.querySelector(
   "input[name=caesar-encode-switch]"
 );
-
-caesarShiftInput.addEventListener("input", () => displayCaesar());
 
 caesarEncodeSwitch.addEventListener("change", () => {
   isCaesarEncoding = !isCaesarEncoding;
