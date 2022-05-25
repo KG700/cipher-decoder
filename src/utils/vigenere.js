@@ -17,7 +17,7 @@ vigenereEncodeSwitch.addEventListener("change", () => {
 });
 
 const vigenereCipher = (text, encoding = true, keyword = "") => {
-  if (!keyword) return text;
+  if (!keyword) return "";
   const keywordCaptialised = keyword.toUpperCase();
   const numKeywordLetters = keyword.length;
 

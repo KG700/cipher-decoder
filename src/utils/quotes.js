@@ -14,7 +14,6 @@ export const getQuotes = async () => {
 
 export const updateQuote = (quotes) => {
   let quoteIndex = Math.floor(Math.random() * quotes.length);
-  console.log("updating quote..", Math.floor(Math.random() * quotes.length));
   document.getElementById("quote-text").innerText = quotes[quoteIndex].text;
   document.getElementById("quote-author").innerText = quotes[quoteIndex].author;
 
