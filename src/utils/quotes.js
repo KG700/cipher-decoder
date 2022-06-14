@@ -1,7 +1,6 @@
 import "regenerator-runtime/runtime";
 
 export const getQuotes = async () => {
-  console.log("getting quotes...");
   const quotes = await fetch("https://type.fit/api/quotes")
     .then((response) => {
       return response.json();
